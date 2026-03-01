@@ -1,4 +1,4 @@
-from utils.logger import log_call
+from app.utils.logger import log_call
 
 class CallService:
 

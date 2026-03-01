@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from api.routes.webhook import router as webhook_router
+from app.api.routes.webhook import router as webhook_router
 from fastapi.middleware.cors import CORSMiddleware
-from api.routes.route import router   
+from app.api.routes.route import router   
 
 app = FastAPI()
 

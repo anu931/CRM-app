@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Form
-from services.call_service import CallService
-from schemas.call_schema import CallResponse
+from app.services.call_service import CallService
+from app.schemas.call_schema import CallResponse
 
 router = APIRouter(prefix="/webhook", tags=["Webhook"])
 
