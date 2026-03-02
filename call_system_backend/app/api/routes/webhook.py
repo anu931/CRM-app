@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Form
-from app.services.call_service import CallService
+from app.usecases.call_usecase import CallUseCase
 from app.schemas.call_schema import CallResponse
 
 router = APIRouter(prefix="/webhook", tags=["Webhook"])
@@ -15,4 +15,7 @@ async def incoming_call(
         "To": To,
         "CallSid": CallSid
     }
-    return CallService.process_call(data)
+
+    usecase = CallUseCase()
+    result = usecase.handle_incoming_call(data)
+    return result
