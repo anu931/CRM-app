@@ -66,7 +66,7 @@ class _CallLogScreenState extends State<CallLogScreen> {
           Expanded(
             child: ListView.separated(
               itemCount: _entries.length,
-              separatorBuilder: (_, __) => const Divider(color: Colors.white12, height: 1),
+              separatorBuilder: (_, _) => const Divider(color: Colors.white12, height: 1),
               itemBuilder: (_, i) {
                 final e = _entries[i];
                 return Padding(

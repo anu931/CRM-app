@@ -37,7 +37,7 @@ class _ActiveCallScreenState extends State<ActiveCallScreen> {
     }
 
     final path = '${dir!.path}/call_${DateTime.now().millisecondsSinceEpoch}.m4a';
-    await _recorder.start(const RecordConfig(encoder: AudioEncoder.aacLc), path: path);
+    await _recorder.start(const RecordConfig(encoder: AudioEncoder.wav), path: path);
     setState(() { _recording = true; _savedPath = path; });
     debugPrint('🔴 Recording to: $path');
   }

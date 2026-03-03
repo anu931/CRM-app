@@ -22,14 +22,14 @@ async def websocket_endpoint(websocket: WebSocket):
         connected_clients.remove(websocket)
         print("Client disconnected")
 
-
+#for testing manual triggering of incoming call from backend 
 @router.get("/trigger-call")
 async def trigger_call():
     for client in connected_clients:
         await client.send_text("incoming_call:Customer:+91 9990000888")
     return {"sent_to": len(connected_clients)}
 
-
+#for json schema of incoming call data
 class CallInfo(BaseModel):
     name: str
     number: str
@@ -73,17 +73,12 @@ async def incoming_call(data: CallInfo):
 
     return {"status": "sent", "sent_to": len(connected_clients)}
 
-
 @router.get("/call-log")
 async def get_call_log():
-    """Flutter can poll this to sync call log."""
     return {"entries": call_log_entries}
-
-
 class TranscriptLine(BaseModel):
     speaker: str
     text: str
-
 
 @router.post("/send-transcript")
 async def send_transcript(data: TranscriptLine):
